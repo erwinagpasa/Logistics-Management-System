@@ -152,8 +152,9 @@ SITE_ID = 2 #http://127.0.0.1:8000/
 
 ACCOUNT_EMAIL_VERIFICATION = True
 ACCOUNT_EMAIL_REQUIRED = True
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"  
+# Bypassing (You are about to sign in using a third party account from Google.) Page
+SOCIALACCOUNT_LOGIN_ON_GET=True
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # NO NEED JUST Setup in Admin http://127.0.0.1:8000/admin/socialaccount/socialapp/add/
 # Provider specific settings

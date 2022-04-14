@@ -15,10 +15,12 @@
     <h1>Hello, world!</h1>
     {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}</p>
-    <a href="{% url 'logout' %}">Log Out</a>
+    <a href="{% url 'account_logout' %}">Log Out</a>
  
     {% else %}
-    <a href="{% url 'login' %}">Log In</a>
+    <p><a href="{% url 'account_login' %}">Log In</a></p>
+    <p><a href="{% url 'account_signup' %}">Register</a></p>
+
     {% endif %}
 
 
