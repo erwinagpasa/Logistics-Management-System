@@ -1,0 +1,9 @@
+{% extends 'components/base.html'%} 
+{% load static %}
+{% block content %}
+
+<h4>Profile Page</h4>
+<p>Welcome, {{ user.username }}</p>
+<a href="{% url 'account_logout' %}">Log Out</a>
+{% endblock%}
+
