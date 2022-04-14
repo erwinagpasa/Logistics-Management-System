@@ -154,6 +154,7 @@ ACCOUNT_EMAIL_VERIFICATION = True
 ACCOUNT_EMAIL_REQUIRED = True
 # Bypassing (You are about to sign in using a third party account from Google.) Page
 SOCIALACCOUNT_LOGIN_ON_GET=True
+LOGIN_REDIRECT_URL = "/dashboard/"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # NO NEED JUST Setup in Admin http://127.0.0.1:8000/admin/socialaccount/socialapp/add/

@@ -1,0 +1,21 @@
+{% extends 'components/base.html'%} 
+{% load static %}
+{% block content %}
+
+<h1>Home</h1>
+{% if user.is_authenticated %}
+
+<p>Welcome, {{ user.username }}</p>
+<a href="{% url 'account_logout' %}">Log Out</a>
+<button type="button" class="btn btn-primary">Primary</button>
+
+{% else %}
+
+<p><a href="{% url 'account_login' %}">Log In</a></p>
+<p><a href="{% url 'account_signup' %}">Register</a></p>
+<button type="button" class="btn btn-primary">Primary</button>
+
+{% endif %}
+
+{% endblock%}
+
