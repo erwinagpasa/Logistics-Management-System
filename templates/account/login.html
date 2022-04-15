@@ -1,20 +1,27 @@
-{% extends 'components/base.html'%} 
+{% extends 'components/base.html'%}
+{% load crispy_forms_tags %}
+{% load static %} 
 {% load i18n %}
 {% load socialaccount %}
-{% load static %}
 {% block content %}
 
+<div class="col-md-4 mx-auto mt-5">
+  <form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{ form|crispy }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
 
-    <form class="login" method="POST" action="{% url 'account_login' %}">
-      {% csrf_token %}
-      {{ form.as_p }}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
-      <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-      <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-    </form>
-      <a href="{% provider_login_url 'google' %}" class="btn btn-danger">Sign in with google</a>
+  
+  <div class="d-grid gap-1">
+  <button type="submit" class="btn btn-primary primaryAction">{% trans "Sign In" %}</button>
+  </div>
+  <small><a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></small>
+  </form>
 
+  
+  <a href="{% provider_login_url 'google' %}" class="btn btn-danger">Sign in with google</a>
+</div>
 
 {% endblock%}
