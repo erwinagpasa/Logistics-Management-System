@@ -12,15 +12,12 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-
   
   <div class="d-grid gap-1">
   <button type="submit" class="btn btn-primary primaryAction">{% trans "Sign In" %}</button>
   </div>
   <small><a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></small>
-  </form>
-
-  
+  </form>  
   <a href="{% provider_login_url 'google' %}" class="btn btn-danger">Sign in with google</a>
 </div>
 

@@ -1,14 +1,16 @@
 {% extends 'components/base.html'%} 
 {% load static %}
 {% block content %}
-
 <div class="col-md-4 mx-auto text-center">
   <h1>Home</h1>
+
+
   {% if user.is_authenticated %}
 
+  <img src="{% static 'img/default.jpeg' %}" alt="My image" class="col-md-3">
+
   <p>Welcome, {{ user.username }}</p>
-  <a href="{% url 'account_logout' %}">Log Out</a>
-  <button type="button" class="btn btn-primary">Primary</button>
+  <a href="{% url 'account_logout' %}" class="btn btn-primary">Log Out</a>
 
   {% else %}
 
